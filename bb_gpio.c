@@ -19,6 +19,7 @@
 #define GPIO1_START_ADDR 	0x4804C000
 #define GPIO1_END_ADDR 		0x4804DFFF
 #define GPIO1_SIZE 				(GPIO1_END_ADDR - GPIO1_START_ADDR)
+
 #define GPIO_OE 					0x134
 #define GPIO_SETDATAOUT 	0x194
 #define GPIO_CLEARDATAOUT 0x190
@@ -64,7 +65,7 @@ int main(int argc, char *argv[]) {
 
 		// -- check map returned address
 		if(gpio_addr == MAP_FAILED) {
-        printf("Unable to map GPIO\n");
+        perror("Unable to map GPIO");
         exit(1);
     }
     
@@ -104,3 +105,4 @@ int main(int argc, char *argv[]) {
     close(fd);
     return 0;
 }
+/***************************** EOF ********************************************/
